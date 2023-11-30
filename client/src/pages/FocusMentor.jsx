@@ -31,7 +31,7 @@ function FocusMentor(props){
     console.log(id);
      useEffect(() => {
        // Initialliztion :
-      axios.get(`http://localhost:${port}/mentor/${id}`)
+      axios.get(`/api/mentor/${id}`)
       .then(response => {
         console.log(response.data);
         setMessage(response.data);
@@ -39,7 +39,7 @@ function FocusMentor(props){
       .catch(error => {
         console.error(`There was an error retrieving the message: ${error}`)
       })
-    }, [id]);
+    }, []);
 
     
     return(

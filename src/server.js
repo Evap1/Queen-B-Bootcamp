@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 //first param is the url adress the client calls/sends massage to
-app.get('/mentor', (req, res) => {
+app.get('/api/mentor', (req, res) => {
   try{
     res.send(users);
   }
@@ -21,7 +21,7 @@ app.get('/mentor', (req, res) => {
 });
 
 
-app.get('/mentor/:id', (req, res) => {
+app.get('/api/mentor/:id', (req, res) => {
   try{
     let found
     const userId = Number(req.params.id);
@@ -37,10 +37,10 @@ app.get('/mentor/:id', (req, res) => {
 });
 
 
-app.get('/mentorFilter', (req, res) => {
+app.get('/api/filter', (req, res) => {
   try{
     let filtered = users
-    const searchFilter = req.query.searchFilter.toLowerCase();
+    const searchFilter = req.query.searchFilter?.toLowerCase();
     if (searchFilter){
       filtered = users.filter(user =>
         Object.values(user).some(value =>

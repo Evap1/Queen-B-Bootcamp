@@ -12,7 +12,7 @@ function HomeDetailedView(){
   
      useEffect(() => {
        // Initialliztion :
-      axios.get(`http://localhost:${port}/mentor`)
+      axios.get(`/api/mentor`)
       .then(response => {
         setMessage(response.data)
       })
@@ -24,7 +24,7 @@ function HomeDetailedView(){
     useEffect(() => {
       // Applying search filter
       const fetchUsers = (searchFilter) => {
-        axios.get(`http://localhost:${port}/mentorFilter?searchFilter=${searchFilter}`)
+        axios.get(`http://localhost:5001/api/filter?searchFilter=${searchFilter}`)
         .then(response => {
           setMessage(response.data)
         })
